@@ -3,10 +3,13 @@
 """
 
 from flask import Flask
+#from config import DEBUG
 
 __author__ = 'cardinalion'
 
 app = Flask(__name__)
+app.config.from_object('config')
+#print(isinstance(app.config,dict))
 
 """
 #another url registration method
@@ -22,4 +25,7 @@ def hello():
     return 'Hello'
 
 #debug mode on，no need to restart server，detailed error info
-app.run(debug=True)
+#use Ethernet IPv4 address in ipconfig
+if __name__ == '__main__':
+    #production enviroment, nginx + uswgi
+    app.run(host ='0.0.0.0',debug=app.config['DEBUG'],port=81)
