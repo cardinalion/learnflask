@@ -11,7 +11,10 @@ app.config.from_object('config')
 
 @app.route('/hello')
 def hello():
-    return 'Hello'
+    headers = {
+        'content-type': 'text/plain'
+    }
+    return '<html></html>', 200, headers
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=app.config['DEBUG'], port=81)

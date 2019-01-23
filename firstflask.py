@@ -2,7 +2,7 @@
 1/21/2019
 """
 
-from flask import Flask
+from flask import Flask, make_response
 #from config import DEBUG
 
 __author__ = 'cardinalion'
@@ -22,7 +22,19 @@ app.add_url_rule('/hello',view_func=hello)
 #route function also uses app.add_url_rule('',)
 @app.route('/hello')
 def hello():
-    return 'Hello'
+    #status code
+    #content-type http headers
+    #content-type = text/html    text/plain,
+    #Response object
+    headers = {
+        'content-type' : 'application/json',
+        'location' : 'http://www.bing.com'
+    }
+    #response= make_response('<html></html>', 301)
+    #response.headers = headers
+    #return response
+    return '<html></html>',301,headers
+    #return '<html></html>'
 
 #debug mode on，no need to restart server，detailed error info
 #use Ethernet IPv4 address in ipconfig
