@@ -8,6 +8,8 @@ verify_ssl = true
 [packages]
 flask = "*"
 requests = "*"
+urllib2 = "*"
+http-client = "*"
 
 [requires]
 python_version = "3.6"
